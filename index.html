@@ -1,28 +1,55 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Moonlit Grimoire — Interactive Witchcraft Studies</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d0b12">
+<title>Moonlit Grimoire — The Witchcraft Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="topbar"><div class="logo">🌙 Moonlit Grimoire</div><div class="top-actions"><button id="themeBtn">◐ Theme</button><button id="resetBtn">Reset progress</button></div></header>
-<div class="app">
-<aside>
-  <div class="profile"><div class="orb">✦</div><h2>Study Dashboard</h2><p>Learn • Research • Reflect</p></div>
-  <nav id="nav"></nav>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="topbar">
+  <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+  <a class="brand" href="#top"><span class="brand-mark">☾</span><span><b>Moonlit</b> Grimoire</span></a>
+  <div class="top-actions"><button class="icon-btn" id="themeBtn" title="Toggle theme">☼</button><button class="ghost-btn" id="resetBtn">Reset</button></div>
+</header>
+<div class="app" id="top">
+<aside id="sidebar">
+  <div class="profile-card"><div class="moon-orb"><span>✦</span></div><div class="small-cap">YOUR JOURNEY</div><h2>Apprentice</h2><div class="mini-progress"><i id="sideProgress"></i></div><small id="sideProgressText">0% complete</small></div>
+  <nav id="nav">
+    <div class="nav-label">Study</div>
+    <a href="#home" class="active">⌂ <span>Academy</span></a>
+    <a href="#foundations">✧ <span>Foundations</span></a>
+    <a href="#history">☽ <span>History & Traditions</span></a>
+    <a href="#practice">✦ <span>Practice</span></a>
+    <a href="#library">⌕ <span>Research Library</span></a>
+    <div class="nav-label">My Grimoire</div>
+    <a href="#journal">✎ <span>Journal</span></a>
+    <a href="#correspondences">◇ <span>Correspondences</span></a>
+  </nav>
 </aside>
 <main>
-  <section class="dashboard">
-    <div class="welcome"><span class="eyebrow">YOUR GRIMOIRE</span><h1>Learn witchcraft like a course.</h1><p>Interactive lessons, notes, quizzes, source cards, and study statistics — all stored in your browser.</p></div>
-    <div class="stats">
-      <div><span>Lessons</span><b id="lessonStat">0/10</b></div><div><span>Quiz accuracy</span><b id="quizStat">0%</b></div><div><span>Notes</span><b id="noteStat">0</b></div><div><span>Study streak</span><b id="streakStat">0 days</b></div>
-    </div>
-  </section>
-  <section class="progress-card"><div><div><strong>Course progress</strong><span id="progressLabel">0%</span></div><div class="bar"><i id="progressBar"></i></div></div></section>
-  <section id="lessonArea"></section>
-  <section class="research"><h2>📚 Research Library</h2><p>Sources are separated from spiritual claims so you can see what is historical, interpretive, or scientifically tested.</p><div id="sources"></div></section>
-</main>
-</div>
+<section class="hero" id="home">
+  <div class="hero-copy"><div class="eyebrow">THE WITCHCRAFT ACADEMY</div><h1>Learn the craft.<br><em>Question everything.</em></h1><p>A structured, research-minded introduction to witchcraft, folklore, symbolism, ritual, and modern practice.</p><div class="hero-actions"><button class="primary-btn" id="continueBtn">Continue learning <span>→</span></button><a class="text-link" href="#foundations">Explore curriculum</a></div></div>
+  <div class="hero-moon"><div class="moon-glow"></div><div class="moon">☾</div><span class="orbit-dot dot-a">✦</span><span class="orbit-dot dot-b">✧</span><span class="orbit-dot dot-c">•</span></div>
+</section>
+<section class="quote-strip"><span>“</span><p>Approach every tradition with curiosity, context, and respect.</p><span>”</span></section>
+<section class="dashboard-grid">
+  <article class="progress-panel panel"><div class="panel-heading"><div><div class="eyebrow">YOUR PROGRESS</div><h2>Path of the Apprentice</h2></div><strong id="progressLabel">0%</strong></div><div class="progress-track"><i id="progressBar"></i></div><div class="progress-meta"><span id="lessonStat">0/20 lessons</span><span id="quizStat">0% quiz accuracy</span><span id="noteStat">0 notes</span></div></article>
+  <article class="moon-panel panel"><div><div class="eyebrow">TODAY'S FOCUS</div><h2>Begin with the foundations.</h2><p>Learn the vocabulary, history, and ideas that make everything else easier to understand.</p></div><span class="wax-seal">✦</span></article>
+</section>
+<section class="section" id="foundations"><div class="section-title"><div><div class="eyebrow">I · FOUNDATIONS</div><h2>Build your practice on solid ground.</h2><p>Start by understanding what witchcraft is, where ideas come from, and how modern practitioners use them.</p></div></div><div id="foundationLessons" class="lesson-list"></div></section>
+<section class="section" id="history"><div class="section-title"><div><div class="eyebrow">II · HISTORY & TRADITIONS</div><h2>Context changes everything.</h2><p>Historical practice, folklore, modern Paganism, and contemporary witchcraft are not interchangeable. Learn the differences.</p></div></div><div id="historyLessons" class="lesson-list"></div></section>
+<section class="section" id="practice"><div class="section-title"><div><div class="eyebrow">III · PRACTICE</div><h2>Turn knowledge into study.</h2><p>Explore symbolic practice while keeping safety, evidence, and cultural context in view.</p></div></div><div id="practiceLessons" class="lesson-list"></div></section>
+<section class="section library-section" id="library"><div class="section-title"><div><div class="eyebrow">RESEARCH LIBRARY</div><h2>Go deeper.</h2><p>Every lesson separates historical evidence, traditional belief, modern interpretation, and scientific evidence where relevant.</p></div><div class="search-wrap"><input id="searchInput" placeholder="Search lessons, herbs, rituals…" aria-label="Search library"></div></div><div id="sources" class="source-grid"></div></section>
+<section class="section personal-grid" id="journal"><div class="section-title"><div><div class="eyebrow">MY GRIMOIRE</div><h2>Keep your own record.</h2><p>Your notes stay in your browser. Use this space for reflections, questions, and observations.</p></div></div><div class="journal-card panel"><textarea id="journalInput" placeholder="What are you studying today? What surprised you? What do you want to investigate next?"></textarea><div class="journal-footer"><span id="journalSaved">Saved locally in your browser</span><button class="primary-btn" id="journalSave">Save entry</button></div></div></section>
+<section class="section" id="correspondences"><div class="section-title"><div><div class="eyebrow">QUICK REFERENCE</div><h2>Correspondences, with context.</h2><p>These are examples, not universal laws. Meanings vary by tradition and individual practice.</p></div></div><div class="correspondence-grid"><div class="ref-card"><span>🌿</span><b>Green</b><p>Common modern associations include growth, nature, prosperity, and renewal.</p></div><div class="ref-card"><span>🌊</span><b>Blue</b><p>Often associated with calm, water, communication, and reflection.</p></div><div class="ref-card"><span>🔥</span><b>Red</b><p>Frequently connected with vitality, passion, courage, and strength.</p></div><div class="ref-card"><span>🌙</span><b>Silver</b><p>Often linked in modern practice with the moon, intuition, reflection, and cycles.</p></div></div></section>
+<footer><span>☾ Moonlit Grimoire</span><span>Study • Research • Reflect</span></footer>
+</main></div>
+<div class="toast" id="toast">Saved ✓</div>
 <script src="script.js"></script>
 </body></html>
